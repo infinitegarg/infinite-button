@@ -1,0 +1,220 @@
+/* some default styles to make the view more native like */
+
+html {
+  box-sizing: border-box;
+  background: transparent;
+
+  /* Prevent the page to be scrollable */
+  overflow: hidden;
+
+  /* Force the default cursor, even on text */
+  cursor: default;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  /* Prevent the content from being selectionable */
+  -webkit-user-select: none;
+  user-select: none;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+
+@font-face {
+font-family: 'Source Sans Pro';
+src: url("SourceSansPro-Regular.ttf");
+}
+
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    opacity: 0;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    width: 14px;
+    height: 14px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid #5ED6AA;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    position: absolute;
+    left: -21px;
+    width: 8px;
+    height: 8px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #5ED6AA;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+
+[type="radio"]:focus + label:before {
+    box-shadow: 0 0 0 5px #e5f8f1;
+}
+
+
+/*Custom Radio*/
+
+.wrapper {
+    width: 314px;
+    height: 410px;
+    margin: 40px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+.container {
+  background: white;
+    padding: 24px;
+}
+.form-element {
+    margin-bottom: 24px;
+}
+label {
+    font-size:12px;
+    color: #919496;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.text > input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #97EDD5;
+    padding: 0;
+    padding-bottom: 4px;
+    color: #2d2d2d;
+    font-size: 14px;
+}
+.radio-container {
+     display: flex;
+}
+.radio-container > .form-element {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+}
+.radio-label > div {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.radio-label > label {
+    margin-bottom: 8px;
+}
+.button {
+    background-image: linear-gradient(-90deg, #97EDD5 0%, #5ED6AA 100%);
+    box-shadow: 0 2px 8px 0 rgba(94,214,170,0.48);
+    border-radius: 3px;
+    width: 100%;
+    padding: 9px 0 11px;
+    color: white;
+    border: none;
+    line-height: 18px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .5s ease;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.button:hover {
+    box-shadow:0 2px 8px 2px rgba(94,214,170,0.5);
+    transition: .5s ease;
+}
+.label-button {
+    background: #ededed;
+    padding: 2px 12px 4px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-left: 12px;
+    line-height: 18px;
+    margin-bottom: 0;
+    text-align: center;
+    color: #2d2d2d;
+}
+.tiny {
+    font-size: 12px;
+}
+.small {
+    padding: 4px 12px 6px;
+}
+.regular {
+    padding: 6px 12px 8px;
+}
+.large {
+    font-size: 16px;
+    padding: 8px 16px 12px;
+}
+.primary {
+    background-color: #0070dd;
+    color: white;
+}
+.secondary {
+    background-color: #ededed;
+    color: #2d2d2d;
+}
+.success {
+    background-color: #2da953;
+    color: white;
+}
+.alert {
+    background-color: #d93737;
+    color: white;
+}
+.warning {
+    background-color: #f78f1e;
+    color: white;
+}
+.transparent {
+    background-color: transparent;
+    color: #2d2d2d;
+}

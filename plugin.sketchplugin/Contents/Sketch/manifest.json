@@ -1,0 +1,22 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Button",
+      "identifier": "my-command-identifier",
+      "script": "my-command.js",
+      "shortcut": "cmd j"
+    }
+  ],
+  "menu": {
+    "title": "Infinite Button",
+    "items": [
+      "my-command-identifier"
+    ]
+  },
+  "version": "0.1.0",
+  "name": "my-plugin",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml"
+}

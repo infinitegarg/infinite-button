@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fluid Button</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <form>
+        <div class="form-element text">
+            <label>Button Label</label>
+            <input type="name" id="btn-text" autofocus>
+        </div>
+        <div class="radio-container">
+            <div class="form-element radio-label">
+                <label>Size</label>
+                <div>
+                    <input type="radio" id="btn-size-1" name="btn-size" value="tiny" checked="checked">
+
+                    <label class="label-button tiny" for="btn-size-1">Tiny</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-size-2" name="btn-size" value="small">
+                    <label  class="label-button small" for="btn-size-2">Small</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-size-3" name="btn-size" value="regular">
+                    <label  class="label-button regular" for="btn-size-3">Regular</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-size-4" name="btn-size" value="large">
+                    <label  class="label-button large"  for="btn-size-4">Large</label>
+                </div>
+            </div>
+
+            <div class="form-element radio-label">
+                <label>Type</label>
+                <div>
+                    <input type="radio" id="btn-type-1" name="btn-type" value="primary" checked="checked">
+                    <label  class="label-button primary"  for="btn-type-1">Primary</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-type-2" name="btn-type" value="secondary">
+                    <label  class="label-button secondary"  for="btn-type-2">Secondary</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-type-3" name="btn-type" value="success">
+                    <label  class="label-button success"  for="btn-type-3">Success</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-type-4" name="btn-type" value="alert">
+                    <label  class="label-button alert"  for="btn-type-4">Alert</label>
+                </div>
+                <div>
+                    <input type="radio" id="btn-type-5" name="btn-type" value="warning">
+                    <label  class="label-button warning"  for="btn-type-5">Warning</label>
+                </div>
+                <div style="margin-bottom:0">
+                    <input type="radio" id="btn-type-6" name="btn-type" value="transparent">
+                    <label  class="label-button transparent"  for="btn-type-6">Transparent</label>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="form-element" style="margin-bottom: 0;">
+          <input class="button" type="submit" id="button" value="Create Button"/>
+        </div>
+
+    </form>
+</div>
+
+  <!-- notice the "../" here. It's because webview.js will be compiled in a different folder -->
+  <script src="../webview.js"></script>
+</body>
+</html>
