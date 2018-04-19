@@ -1,4 +1,5 @@
 import pluginCall from 'sketch-module-web-view/client'
+import contextValidate from 'sketch-module-web-view/client'
 
 // Disable the context menu to have a more native feel
 document.addEventListener("contextmenu", function(e) {
@@ -78,6 +79,16 @@ const buttonProps = {
 // };
 
 
+
+window.onload = contextValidate('contextValidate');
+
+// called from the plugin
+window.setExistingText = function (text) {
+  console.log('random number is ' + text);
+  document.getElementById('btn-text').value = text;
+  // document.getElementById('answer').innerHTML = 'Random number from the plugin: ' + text
+}
+
 document.getElementById('button').addEventListener('click', function () {
 
   config.btnText = document.getElementById('btn-text').value;
@@ -109,6 +120,9 @@ document.getElementById('button').addEventListener('click', function () {
 
   pluginCall('nativeLog', payload)
 })
+
+
+
 
 //
 // // called from the plugin

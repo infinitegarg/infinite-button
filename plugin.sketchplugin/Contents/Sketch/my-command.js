@@ -357,9 +357,6 @@ exports['default'] = function (context) {
             // Set font Size
             textLayer.setFontSize(config.fontSize);
 
-            // Get existing Text of button
-            var existingButtonText = textLayer.stringValue();
-
             //Set text input by user
             textLayer.setStringValue(config.btnText);
             setButtonDm(textLayer, btnRect, config);
@@ -536,6 +533,46 @@ exports['default'] = function (context) {
         }
 
         return nativeLog;
+      }(),
+      contextValidate: function () {
+        function contextValidate() {
+          var select = context.selection.firstObject();
+          // Begin validation of selection
+          // Ensure there's only one layer selected
+          if (!select) {
+            context.document.showMessage('Select a group or symbol first.');
+            return;
+          }
+
+          if (select instanceof MSLayerGroup) {
+            var layers = select.layers();
+            if (layers.length < 2) {
+              context.document.showMessage('Group contain only single element.');
+              return;
+            }
+
+            // Loop through child layers to identify the text layer
+            var textLayer = nil;
+            for (var i = 0; i < layers.length; i++) {
+              var layer = layers[i];
+              if (layer instanceof MSTextLayer) {
+                textLayer = layer;
+                break;
+              }
+            }
+          }
+
+          // Get existing Text of button
+          var existingButtonText = textLayer.stringValue();
+console.log('setExistingText(' + existingButtonText + ')');
+          webUI.eval('setExistingText(' + existingButtonText + ')');
+          context.document.showMessage('ye bhi aya.');
+
+          console.log('yeh chala');
+          console.log('pehle ka text is' + existingButtonText);
+        }
+
+        return contextValidate;
       }()
     }
   });
@@ -837,7 +874,7 @@ module.exports.ADD_ACTION = 'actions/ADD_ACTION'
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = "file://" + context.plugin.urlForResourceNamed("_webpack_resources/74b889316022767adddb22e1374c7704.html").path();
+module.exports = "file://" + context.plugin.urlForResourceNamed("_webpack_resources/3c2cd0085e0b0e63d913fdaf0d9a4665.html").path();
 
 /***/ }),
 /* 7 */

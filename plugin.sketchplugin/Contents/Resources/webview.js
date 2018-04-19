@@ -71,7 +71,7 @@ var _client = __webpack_require__(1);
 
 var _client2 = _interopRequireDefault(_client);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 // Disable the context menu to have a more native feel
 document.addEventListener("contextmenu", function (e) {
@@ -149,8 +149,16 @@ var buttonProps = {
   //    }
   // };
 
+};window.onload = (0, _client2['default'])('contextValidate');
 
-};document.getElementById('button').addEventListener('click', function () {
+// called from the plugin
+window.setExistingText = function (text) {
+  console.log('random number is ' + text);
+  document.getElementById('btn-text').value = text;
+  document.getElementById('answer').innerHTML = 'Random number from the plugin: ' + text
+};
+
+document.getElementById('button').addEventListener('click', function () {
 
   config.btnText = document.getElementById('btn-text').value;
 
@@ -173,7 +181,7 @@ var buttonProps = {
   var payload = Object.assign({}, config, buttonProps[config.btnSize], buttonType[config.btnType]);
   console.log('sent payload is ' + payload);
 
-  (0, _client2["default"])('nativeLog', payload);
+  (0, _client2['default'])('nativeLog', payload);
 });
 
 //

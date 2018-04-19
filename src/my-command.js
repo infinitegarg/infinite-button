@@ -81,9 +81,6 @@ export default function(context) {
           // Set font Size
           textLayer.setFontSize(config.fontSize);
 
-          // Get existing Text of button
-          var existingButtonText = textLayer.stringValue();
-
           //Set text input by user
           textLayer.setStringValue(config.btnText);
           setButtonDm(textLayer, btnRect, config);
@@ -263,6 +260,40 @@ export default function(context) {
 
         // var textFrame = textLayer.frame();
 
+      },
+      contextValidate() {
+        var select= context.selection.firstObject();
+        // Begin validation of selection
+        // Ensure there's only one layer selected
+        if(!select) {
+          context.document.showMessage('Select a group or symbol first.');
+          return;
+        }
+
+        if(select instanceof MSLayerGroup) {
+          var layers = select.layers();
+          if (layers.length < 2) {
+            context.document.showMessage('Group contain only single element.');
+            return;
+          }
+
+          // Loop through child layers to identify the text layer
+          var textLayer = nil;
+          for (var i = 0; i < layers.length; i++) {
+            var layer = layers[i];
+            if (layer instanceof MSTextLayer) {
+              textLayer = layer;
+              break;
+            }
+          }
+        }
+
+        // Get existing Text of button
+        var existingButtonText = textLayer.stringValue();
+
+        webUI.eval('setExistingText('+existingButtonText+')');
+        console.log('yec chala');
+        console.log('pehle ka text is'+existingButtonText);
       }
     }
   })
